@@ -10,12 +10,20 @@ These rules apply to every wave/step prompt given to any LLM (Claude, Codex, Qwe
 | `PROJECT_SETUP.md` | **Once** at project init | Tech stack pick-lists, env setup, README template |
 | `FRONTEND_RULES.md` | **Frontend steps only** | Conventions, design reference, visual QA |
 
-Before giving any prompt to an LLM, say: **"Read PROMPT_RULES.md first and follow it."**
+**First time?** Copy these files into your project, then say: **"Read PROMPT_RULES.md and set up this project."** The LLM will walk you through configuring everything interactively.
+
+**After setup:** Before any prompt, say: **"Read PROMPT_RULES.md first and follow it."**
 For frontend steps, add: **"Also read FRONTEND_RULES.md."**
 
 ## Quick Commands
 
 All commands assume the LLM has already read this file.
+
+### Project init
+
+| Command | What it does |
+|---------|-------------|
+| `Set up this project.` | Reads `PROJECT_SETUP.md`, asks you questions, configures all files |
 
 ### Planning & status
 

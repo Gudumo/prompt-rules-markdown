@@ -2,9 +2,35 @@
 
 > This file is used **once** when initializing a new project. After setup, the LLM reads `PROMPT_RULES.md` and (for frontend steps) `FRONTEND_RULES.md` instead.
 
+## Interactive Setup Protocol
+
+When the user says **"Set up this project."**, the LLM must:
+
+1. Read this entire file (`PROJECT_SETUP.md`).
+2. Walk the user through each section below **one category at a time**, asking a short question for each. Example flow:
+   ```
+   What framework are you using?
+   Options: React, Next.js (App Router), Next.js (Pages Router), Remix, Astro,
+   Svelte/SvelteKit, Vue 3, Nuxt 3, Angular, Solid.js, Qwik, Gatsby,
+   Eleventy, Plain HTML/Vanilla JS, or something else?
+   ```
+3. Wait for the user's answer before moving to the next category.
+4. Group related questions when it makes sense (e.g., "What database and ORM?" in one question) to keep the flow short, but never ask everything at once.
+5. If the user says "skip" or "none" for a category, remove that section entirely.
+6. After all questions are answered, the LLM must:
+   - Update this file: delete all unchosen options, check the chosen ones.
+   - Update `FRONTEND_RULES.md` if any frontend conventions need adjusting for the chosen stack (e.g., remove "No `any` types" rule if JavaScript was picked).
+   - Create `.env.example`, `.gitignore`, `.editorconfig`, and `scripts/setup.sh` based on the answers.
+   - Generate the `README.md` using the template at the bottom of this file, populated with the chosen stack.
+   - Report what was created/modified.
+
+7. The LLM must **not** start any of this until the user triggers it with the setup command. These pick-lists exist as a reference — the interactive flow is the intended way to configure them.
+
+---
+
 ## Tech Stack
 
-> **Instructions:** Delete every option you are NOT using. Keep only your actual stack. Check the box for your selection.
+> **Reference list.** The LLM uses these during the interactive setup flow. You can also edit them manually — delete what you don't use, check what you keep.
 
 ### Framework
 

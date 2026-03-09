@@ -13,9 +13,10 @@ A drop-in rule system for managing LLM-assisted development. Copy these files in
 ## How to use
 
 1. Copy the three `.md` files into your project root.
-2. Open `PROJECT_SETUP.md` and delete every stack option you don't use. Fill in your versions.
-3. Before any LLM prompt, say: **"Read PROMPT_RULES.md first and follow it."**
-4. For frontend work, add: **"Also read FRONTEND_RULES.md."**
+2. Tell your LLM: **"Read PROMPT_RULES.md and set up this project."**
+3. The LLM will walk you through the stack choices one by one, then configure everything for you (`.env.example`, `.gitignore`, `.editorconfig`, `README.md`, `scripts/setup.sh`).
+4. After setup, before any prompt say: **"Read PROMPT_RULES.md first and follow it."**
+5. For frontend work, add: **"Also read FRONTEND_RULES.md."**
 
 ## What it covers
 
