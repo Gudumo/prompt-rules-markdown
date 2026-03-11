@@ -2,6 +2,17 @@
 
 > The LLM reads this file **only for steps that produce frontend/UI code**. For all steps, read `PROMPT_RULES.md` first.
 
+## Claude Code: frontend-design skill
+
+When **all of these are true**:
+- The assigned model is Claude
+- You are running inside Claude Code (not a plain chat)
+- The step produces visible UI (a page, layout, or component from scratch)
+
+→ Invoke the `/frontend-design` skill **before writing any code**. It produces higher-quality, more distinctive UI than standard code generation and works well with the visual QA loop below.
+
+If any condition is false (different model, plain chat, or the step is a minor tweak to existing UI), skip this and follow the conventions below directly.
+
 ## Conventions
 
 These rules apply to all frontend code. The LLM must follow them.
